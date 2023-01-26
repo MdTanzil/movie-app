@@ -1,7 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ searchText, setSearchText }) => {
+  const updateSearchText = (e) => {
+    setSearchText(e.target.value)
+  };
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -9,7 +12,7 @@ const Navbar = () => {
           <Link className="navbar-brand" to="/">
             Movie App
           </Link>
-       
+
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
@@ -23,7 +26,9 @@ const Navbar = () => {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="gosome" className="nav-link disabled">Disabled</Link>
+                <Link to="gosome" className="nav-link disabled">
+                  Disabled
+                </Link>
               </li>
             </ul>
             <form className="d-flex" role="search">
@@ -32,6 +37,8 @@ const Navbar = () => {
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                value={searchText}
+                onChange={updateSearchText}
               />
               <button className="btn btn-outline-success" type="submit">
                 Search

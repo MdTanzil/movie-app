@@ -1,9 +1,8 @@
 import React from 'react'
 import Hero from './Hero'
 
-const Search = ({ keyword, searchResult }) => {
-    const title = `You are searching for ${keyword}`
-    console.log(searchResult, "are the search result");
+const Search = ({ searchText, searchResult }) => {
+  const title = `You are searching for ${searchText}`;
   return (
     <div>
       <Hero header="Search Page" text={title} />
