@@ -7,7 +7,10 @@ const Navbar = ({ searchText, setSearchText }) => {
   };
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+      <nav
+        className="navbar navbar-expand-lg  "
+        style={{ backgroundColor: "#00425A", color: "white !important" }}
+      >
         <div className="container-fluid text-white">
           <Link className="navbar-brand" to="/">
             Movie App

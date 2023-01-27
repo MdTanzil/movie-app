@@ -1,16 +1,24 @@
-import './App.css';
+import "./App.css";
 import { Route, Routes } from "react-router";
-import Navbar from './components/Navbar'
-import Home from './components/Home'
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 import About from "./components/About";
 import Search from "./components/Search";
-import { useState } from 'react';
+import { useEffect, useState } from "react";
 
 function App() {
-  const [searchResult, setSearchResult] = useState([])
-  const[searchText, setSearchText] =  useState('')
-
-
+  const [searchResult, setSearchResult] = useState([]);
+  const [searchText, setSearchText] = useState("");
+  useEffect(() => {
+    fetch(
+      `https://api.themoviedb.org/3/search/company?api_key=451f6d463aaaee10661aff8fe25140a7&query=${searchText}&page=1`
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+      });
+  }, [searchText]);
+  //TMDB  API KEY = 451f6d463aaaee10661aff8fe25140a7
 
   return (
     <>
