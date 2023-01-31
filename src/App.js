@@ -10,13 +10,17 @@ function App() {
   const [searchResult, setSearchResult] = useState([]);
   const [searchText, setSearchText] = useState("");
   useEffect(() => {
-    fetch(
-      `https://api.themoviedb.org/3/search/company?api_key=451f6d463aaaee10661aff8fe25140a7&query=${searchText}&page=1`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-      });
+    if(searchText){
+      fetch(
+        `https://api.themoviedb.org/3/search/movie?api_key=451f6d463aaaee10661aff8fe25140a7&language=en-US&query=${searchText}&page=1&include_adult=false`
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setSearchResult(data.results);
+        });
+
+    }
+    
   }, [searchText]);
   //TMDB  API KEY = 451f6d463aaaee10661aff8fe25140a7
 
